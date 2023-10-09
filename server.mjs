@@ -6,7 +6,7 @@ const html = readFileSync("index.html", "utf-8");
 const server = createServer((req, res) => {
   console.log(process.env);
   res.statusCode = 200;
-  res(html);
+  res.end(html);
 });
 
 server.listen(process.env.PORT || 3000);
