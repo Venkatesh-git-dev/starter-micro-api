@@ -1,8 +1,12 @@
 import { createServer } from "node:http";
+import { readFileSync } from "node:fs";
+
+const html = readFileSync("index.html", "utf-8");
 
 const server = createServer((req, res) => {
   console.log(process.env);
-  res.end("<h1>hello mummy K.B.T.Sundari devi from Venkatesh!</h1>");
+  res.statusCode = 200;
+  res(html);
 });
 
 server.listen(process.env.PORT || 3000);
